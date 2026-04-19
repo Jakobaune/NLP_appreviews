@@ -26,17 +26,16 @@ Classifies Google Play reviews for ChatGPT, Gemini, and Claude into three sentim
 ```
 utils.py                        # Shared helpers (classify_sentiment, normalize_text, balance_by_min_class)
 data/
-  reviewScraper.ipynb           # Scrapes reviews, builds balanced dataset, creates train/test splits
+  reviewScraper.ipynb           # Scrapes reviews, deduplicates, creates stratified 80/20 train/test splits
 eda/
   eda.ipynb                     # Exploratory data analysis and class distribution
   spacy_analysis.ipynb          # Lemmatization and POS tagging analysis
   topic_modeling_ner.ipynb      # LDA topic modeling and named entity recognition
-  lexicon_baselines.ipynb       # SentiWordNet baseline evaluation
 NLP/
-  baseline.ipynb                # VADER and Naïve Bayes + TF-IDF baselines
-  feature_engineering.ipynb     # NB variants with lemmas, POS, and LDA features
+  lexicon_baselines.ipynb       # VADER and SentiWordNet lexicon baselines
+  naive_bayes.ipynb             # Naïve Bayes variants (TF-IDF, lemmas, POS, LDA)
   RoBERTa_balanced.ipynb        # RoBERTa fine-tuned on downsampled balanced training set
-  RoBERTa_Full_Dataset.ipynb    # RoBERTa fine-tuned on full dataset with class-weighted loss
+  RoBERTa_Full_Dataset.ipynb    # RoBERTa fine-tuned on imbalanced training set with class-weighted loss
 ```
 
 ---
@@ -70,7 +69,7 @@ Python 3.11. RoBERTa training was run on Apple MPS (Mac GPU). GPU or CUDA is str
 1. `data/reviewScraper.ipynb` — scrape, clean, and split the data
 2. `eda/eda.ipynb` — explore class distributions
 3. `eda/` notebooks — optional linguistic analysis
-4. `NLP/baseline.ipynb` — VADER and Naïve Bayes
-5. `NLP/feature_engineering.ipynb` — Naïve Bayes variants
+4. `NLP/lexicon_baselines.ipynb` — VADER and SentiWordNet
+5. `NLP/naive_bayes.ipynb` — Naïve Bayes variants
 6. `NLP/RoBERTa_balanced.ipynb` — RoBERTa on balanced data
 7. `NLP/RoBERTa_Full_Dataset.ipynb` — RoBERTa with class-weighted loss
