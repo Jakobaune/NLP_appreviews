@@ -10,14 +10,14 @@ Classifies Google Play reviews for ChatGPT, Gemini, and Claude into three sentim
 
 | System | Macro F1 |
 |---|---|
-| SentiWordNet | 0.442 |
-| VADER | 0.475 |
-| Naïve Bayes + TF-IDF | 0.574 |
-| Naïve Bayes + Lemmas | 0.575 |
-| Naïve Bayes + TF-IDF + POS | 0.572 |
-| Naïve Bayes + TF-IDF + LDA | 0.571 |
-| RoBERTa (balanced) | **0.661** |
-| RoBERTa (full + class-weighted) | 0.659 |
+| SentiWordNet | 0.411 |
+| VADER | 0.492 |
+| NB + TF-IDF(clean_content) | 0.530 |
+| NB + TF-IDF(lemmas) | 0.530 |
+| NB + TF-IDF + POS | 0.557 |
+| NB + TF-IDF + LDA | 0.559 |
+| RoBERTa (balanced) | **0.637** |
+| RoBERTa (imbalanced + weighted) | 0.620 |
 
 ---
 
